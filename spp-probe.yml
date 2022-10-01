@@ -5,4 +5,4 @@ skywalking:
   logging:
     level: "WARN"
   agent:
-    service_name: "demo-java"
+    service_name: "demo-nodejs"
