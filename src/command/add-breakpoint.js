@@ -13,5 +13,5 @@
 module.exports = function () {
     const randomNumber = Math.floor(Math.random() * 100);
     const isEven = randomNumber % 2 === 0;
-    console.log(randomNumber);
+    console.log(`${randomNumber} is ${isEven ? "even" : "odd"}`);
 }
