@@ -1,0 +1,10 @@
+{
+  "name": "demo-nodejs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "sourceplusplus": "^0.0.8"
+  }
+}
