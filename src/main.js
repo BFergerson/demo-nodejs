@@ -14,7 +14,7 @@ function startIndicators() {
 
     const app = express();
     const failingEndpoint = require('./indicator/FailingEndpoint');
-    app.use('/indicator', failingEndpoint);
+    app.use('/', failingEndpoint);
     app.listen(3000);
 }
 
