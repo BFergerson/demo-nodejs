@@ -35,7 +35,6 @@ function executeIndicators() {
 
     //failing endpoint indicator
     axios.get('http://localhost:3000/indicator/fail-100-percent').catch(() => {});
-    axios.get('http://localhost:3000/indicator/fail-75-percent').catch(() => {});
     axios.get('http://localhost:3000/indicator/fail-50-percent').catch(() => {});
 
     //slow endpoint indicator
