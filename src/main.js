@@ -11,11 +11,19 @@ setInterval(executeDemos, 1000);
 
 function startIndicators() {
     const express = require('express');
-
     const app = express();
-    app.use('/', require('./indicator/FailingEndpoint'));
-    app.use('/', require('./indicator/HighLoadEndpoint'));
-    app.use('/', require('./indicator/SlowEndpoint'));
+
+    const failingEndpoint = require('./indicator/FailingEndpoint');
+    app.use('/', failingEndpoint);
+
+    const highLoadEndpoint = require('./indicator/HighLoadEndpoint');
+    app.use('/', highLoadEndpoint);
+
+    const slowEndpoint = require('./indicator/SlowEndpoint');
+    app.use('/', slowEndpoint);
+
+    const unusedEndpoint = require('./indicator/UnusedEndpoint');
+    app.use('/', unusedEndpoint);
 
     app.listen(3000);
 }
