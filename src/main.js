@@ -13,16 +13,16 @@ function startIndicators() {
     const express = require('express');
     const app = express();
 
-    const failingEndpoint = require('./indicator/FailingEndpoint');
+    const failingEndpoint = require('./indicator/failing-endpoint');
     app.use('/', failingEndpoint);
 
-    const highLoadEndpoint = require('./indicator/HighLoadEndpoint');
+    const highLoadEndpoint = require('./indicator/high-load-endpoint');
     app.use('/', highLoadEndpoint);
 
-    const slowEndpoint = require('./indicator/SlowEndpoint');
+    const slowEndpoint = require('./indicator/slow-endpoint');
     app.use('/', slowEndpoint);
 
-    const unusedEndpoint = require('./indicator/UnusedEndpoint');
+    const unusedEndpoint = require('./indicator/unused-endpoint');
     app.use('/', unusedEndpoint);
 
     app.listen(3000);
