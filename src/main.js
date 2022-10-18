@@ -5,6 +5,7 @@ const addBreakpoint = require("./command/add-breakpoint");
 
 function executeDemos() {
     addBreakpoint();
+    executeIndicators();
 }
 
 setInterval(executeDemos, 1000);
@@ -49,5 +50,3 @@ function executeIndicators() {
     axios.get('http://localhost:3000/indicator/high-load-two-per-second').catch(() => {});
     axios.get('http://localhost:3000/indicator/high-load-two-per-second').catch(() => {});
 }
-
-setInterval(executeIndicators, 1000);
