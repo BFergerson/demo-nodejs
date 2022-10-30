@@ -1,6 +1,9 @@
 const SourcePlusPlus = require("sourceplusplus");
 SourcePlusPlus.start();
 
+const axios = require("axios");
+const express = require("express");
+
 const addBreakpoint = require("./command/add-breakpoint");
 
 function executeDemos() {
@@ -11,20 +14,12 @@ function executeDemos() {
 setInterval(executeDemos, 1000);
 
 function startIndicators() {
-    const express = require('express');
     const app = express();
 
-    const failingEndpoint = require('./indicator/failing-endpoint');
-    app.use('/', failingEndpoint);
-
-    const highLoadEndpoint = require('./indicator/high-load-endpoint');
-    app.use('/', highLoadEndpoint);
-
-    const slowEndpoint = require('./indicator/slow-endpoint');
-    app.use('/', slowEndpoint);
-
-    const unusedEndpoint = require('./indicator/unused-endpoint');
-    app.use('/', unusedEndpoint);
+    app.use('/', require('./indicator/failing-endpoint'));
+    app.use('/', require('./indicator/high-load-endpoint'));
+    app.use('/', require('./indicator/slow-endpoint'));
+    app.use('/', require('./indicator/unused-endpoint'));
 
     app.listen(3000);
 }
@@ -32,8 +27,6 @@ function startIndicators() {
 startIndicators();
 
 function executeIndicators() {
-    const axios = require('axios');
-
     //failing endpoint indicator
     axios.get('http://localhost:3000/indicator/fail-100-percent').catch(() => {});
     axios.get('http://localhost:3000/indicator/fail-50-percent').catch(() => {});
