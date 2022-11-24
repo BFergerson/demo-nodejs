@@ -1,5 +1,5 @@
 const SourcePlusPlus = require("sourceplusplus");
-SourcePlusPlus.start();
+SourcePlusPlus.start(null, true);
 
 const axios = require("axios");
 const express = require("express");
