@@ -14,4 +14,14 @@ module.exports = function () {
     const randomNumber = Math.floor(Math.random() * 100);
     const isEven = randomNumber % 2 === 0;
     console.log(`${randomNumber} is ${isEven ? "even" : "odd"}`);
+
+    /*
+     * The "Add Breakpoint" command support PII (Personally Identifiable Information) redaction.
+     * This allows you to safely add breakpoints to code with sensitive data.
+     *
+     * Try adding a breakpoint to output any of the variables below.
+     */
+    const password = "password123"; // redacted via variable identifier
+    const ssn = "123-45-6789"; // redacted via regex pattern
+    console.log(`password: ${password}, ssn: ${ssn}`)
 }
